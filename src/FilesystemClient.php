@@ -12,7 +12,6 @@ final readonly class FilesystemClient
         private HttpClientInterface $httpClient,
         private string $baseUrl,
         private string $token,
-        private string $integrationSystemCode,
     ) {
     }
 
@@ -65,13 +64,14 @@ final readonly class FilesystemClient
         return $response->getContent();
     }
 
-    /** @return array<string, string> */
+    /**
+     * Персональный JWT сервиса (выдаёт integration-registry). Код системы Filesystem берёт из claim `sub`.
+     *
+     * @return array<string, string>
+     */
     private function headers(): array
     {
-        return [
-            'X-Platform-Token' => $this->token,
-            'X-Integration-System-Code' => $this->integrationSystemCode,
-        ];
+        return ['Authorization' => 'Bearer ' . $this->token];
     }
 
     private function url(string $path): string
