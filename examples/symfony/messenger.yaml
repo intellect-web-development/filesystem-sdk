@@ -1,0 +1,18 @@
+# Фрагмент Resource/config/services/messenger.yaml продукта.
+# Публикация команд в Filesystem; очереди объявляет сервис-получатель (queues: false).
+
+framework:
+    messenger:
+        transports:
+            filesystem-transport:
+                dsn: '%env(PLATFORM_MESSENGER_TRANSPORT_DSN)%'
+                retry_strategy:
+                    max_retries: 3
+                    delay: 5000
+                    multiplier: 3
+                options:
+                    exchange:
+                        name: filesystem.commands
+                        type: direct
+                    queues: false
+        routing: { }

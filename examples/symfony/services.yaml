@@ -1,0 +1,9 @@
+# Фрагмент config/services.yaml продукта после opt-in Filesystem.
+# Полный чеклист: sibling filesystem/INTEGRATION.md
+
+services:
+    IWD\FilesystemSdk\FilesystemClient:
+        arguments:
+            $httpClient: '@http_client'
+            $baseUrl: '%env(FILESYSTEM_BASE_URL)%'
+            $token: '%env(PLATFORM_SERVICE_TOKEN)%'
