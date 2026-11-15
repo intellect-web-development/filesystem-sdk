@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Common\Infrastructure\Doctrine\Filesystem;
+namespace IWD\FilesystemSdk\Examples\Symfony;
 
 use IWD\FilesystemSdk\Message\Command\RemoveFilesMessage;
 use Symfony\Component\Messenger\MessageBusInterface;
 
 /**
  * Пример: после flush удалить файлы в Filesystem асинхронно.
- * Скопировать/адаптировать в продукт при opt-in.
+ * В продукте копируйте в App\Common\Infrastructure\Doctrine\Filesystem (или свой BC) при opt-in.
  */
 final readonly class RemoveFilesDispatch
 {
