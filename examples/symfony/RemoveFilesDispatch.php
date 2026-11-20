@@ -9,7 +9,7 @@ use Symfony\Component\Messenger\MessageBusInterface;
 
 /**
  * Пример: после flush удалить файлы в Filesystem асинхронно.
- * В продукте копируйте в App\Common\Infrastructure\Doctrine\Filesystem (или свой BC) при opt-in.
+ * В продукте копируйте в App\PlatformProjection\Filesystem (или свой BC) при opt-in.
  */
 final readonly class RemoveFilesDispatch
 {
